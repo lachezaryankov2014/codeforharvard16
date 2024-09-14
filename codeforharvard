@@ -1,0 +1,21 @@
+const int soundSensorPin = A0; // Sound sensor connected to A0
+const int ledPin = 13; // LED connected to digital pin 13
+int soundDetectedVal = 0; // Variable to store the value read from the sensor
+pin
+void setup() {
+pinMode(ledPin, OUTPUT); // Declare the LED as an output
+pinMode(soundSensorPin, INPUT); // Declare the sensor as an input
+Serial.begin(9600); // Start serial communication
+}
+void loop() {
+soundDetectedVal = analogRead(soundSensorPin); // Read the value from the sensor
+Serial.println(soundDetectedVal); // Print the value to the serial
+monitor
+if (soundDetectedVal > 400) { // Check if the sound level exceeds a threshold
+
+digitalWrite(ledPin, HIGH); // Turn on LED if high sound level is
+detected
+} else {
+digitalWrite(ledPin, LOW); // Turn off LED if sound level is low
+}
+}
